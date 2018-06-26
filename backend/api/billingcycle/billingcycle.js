@@ -3,7 +3,7 @@ const mongoose = restful.mongoose
 //Carros disponiveis
 const creditSchema = new mongoose.Schema({
   //name
-  brand: { type: String, required: true},
+  brand: { type: String, required: false},
   //modelo
   model: {type: String, required: true},
   value: {type: Number, min: 0, required: [true, 'Informe o valor do veículo!']}
@@ -17,7 +17,7 @@ const debtSchema = new mongoose.Schema({
   enum: ['VENDIDO', 'DISPONIVEL', 'OFICINA']}
 })
 
-const billingCycleShema = new mongoose.Schema({
+const billingCycleSchema = new mongoose.Schema({
   //name
   brand: { type: String, required: true},
   //modelo
@@ -38,4 +38,4 @@ const billingCycleShema = new mongoose.Schema({
   debts: [debtSchema]
 })
 
-module.exports = restful.model('BillingCycle', billingCycleShema)
+module.exports = restful.model('BillingCycle', billingCycleSchema)
